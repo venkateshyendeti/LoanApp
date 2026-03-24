@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 class="logo">YIYI SUNFLOWER</h2>
+
+        <ul>
+            <li>Dashboard</li>
+
+            <li class="dropdown">
+                User Management
+                <ul class="submenu">
+                    <li><a href="UserMangment/addNew.html" class="sub-btn">Add New User</a></li>
+                    <li><a href="UserMangment/verified.html" class="sub-btn">Verified User</a></li>
+                    <li><button class="sub-btn">Unverified User</button></li>
+                    <li><button class="sub-btn">All User</button></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                Loan Management
+                <ul class="submenu">
+                    <li><button class="sub-btn">Loans</button></li>
+                    <li><button class="sub-btn">Loan Calculator</button></li>
+                    <li><button class="sub-btn">Repayment</button></li>
+                    <li><button class="sub-btn">Loan Products</button></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                Fees
+                <ul class="submenu">
+                    <li><button class="sub-btn">Charge New Fee</button></li>
+                    <li><button class="sub-btn">Fee History</button></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                Reports
+                <ul class="submenu">
+                    <li><button class="sub-btn">Transaction Reports</button></li>
+                    <li><button class="sub-btn">Disbursement</button></li>
+                </ul>
+            </li>
+------------------------------------------
+            <li class="dropdown">
+                Manage and Admin
+                <ul class="submenu">
+                    <li><button class="sub-btn">Add New </button></li>
+                    <li><button class="sub-btn">Manage Admin List</button></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                Administrator
+                <ul class="submenu">
+                    <li><button class="sub-btn">General Settings</button></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+        <!-- Topbar -->
+        <div class="topbar">
+            <h3>Dashboard</h3>
+
+            <div class="right">
+                🔔 ✉️
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'validation')">Validation</button>
+            <button class="tab-btn" onclick="openTab(event, 'pending')">Pending</button>
+            <button class="tab-btn" onclick="openTab(event, 'approved')">Approved</button>
+            <button class="tab-btn" onclick="openTab(event, 'disbursement')">Disbursement</button>
+        </div>
+
+        <div id="validation" class="tab-content">Validation Content</div>
+        <div id="pending" class="tab-content" style="display:none;">Pending Content</div>
+        <div id="approved" class="tab-content" style="display:none;">Approved Content</div>
+        <div id="disbursement" class="tab-content" style="display:none;">Disbursement Content</div>
+
+        <!-- Search + Button -->
+        <div class="actions">
+            <input type="text" placeholder="Search...">
+            <li><button class="sub-btn">Create New</button></li>
+
+        </div>
+
+        <!-- Table -->
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th>Loan ID</th>
+                <th>Loan Product</th>
+                <th>Borrower</th>
+                <th>Account</th>
+                <th>Release Date</th>
+                <th>Loan Amount</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <!-- empty rows -->
+            <tr><td colspan="9" style="text-align:center;">No Data</td></tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>

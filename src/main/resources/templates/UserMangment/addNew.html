@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New User</title>
+    <link rel="stylesheet" href="add.css">
+</head>
+<body>
+
+<div class="header">
+    <h2>☰ Add New User</h2>
+    <div class="icons">
+        🔔 ✉️
+    </div>
+</div>
+
+<div class="container">
+    <form >
+
+        <div class="row">
+            <div class="field">
+                <label>Account Type *</label>
+                <select name="accountType" required>
+                    <option value="" disabled selected>Select Account Type</option>
+                    <option value="Admin">Admin User</option>
+                    <option value="Admin">Advance User</option>
+                    <option value="User">User</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Account Status</label>
+                <select name="accountStatus"required>
+                    <option value="" selected>Select Account Status</option>
+                    <option value="verified">verified</option>
+                    <option value="Unverified">Unverified</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="field">
+                <label>First Name *</label>
+                <input type="text" name="firstName" placeholder="First Name">
+            </div>
+
+            <div class="field">
+                <label>Last Name *</label>
+                <input type="text" name="lastName" placeholder="Last Name">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="field">
+                <label>Email *</label>
+                <input type="email" name="email" placeholder="Email">
+            </div>
+
+            <div class="field">
+                <label>Mobile Number</label>
+                <input type="text" name="mobile" placeholder="Mobile Number">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="field">
+                <label>Confirm Password *</label>
+                <input type="password" name="confirmPassword" placeholder="Confirm Password">
+            </div>
+
+            <div class="field">
+                <label>Password *</label>
+                <input type="password" name="password" placeholder="Password">
+
+            </div>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" name="enabled" value="true">Enable
+        </div>
+
+            <div class="buttons">
+                <button type="submit" class="save">Save</button>
+                <button type="reset" class="reset">Reset</button>
+            </div>
+
+    </form>
+</div>
+
+<script src="add.js"></script>
+</body>
+</html>

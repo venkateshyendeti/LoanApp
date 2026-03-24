@@ -1,4 +1,4 @@
-package API_Practice.com.example.demo.jwtutil;
+package API_Practice.com.example.demo.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,8 +23,14 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/api/**").permitAll() // correct path
-                        .anyRequest().authenticated()
+                        .requestMatchers(
+                                "/auth/api/**",
+                                "/create/**",
+                                "/dashboard",
+                                "/css/**",
+                                "/js/**",
+                                "/**"   // 🔥 IMPORTANT (temporary fix)
+                        ).permitAll()
                 )
                 .formLogin(form -> form.disable())
                 .httpBasic(httpBasic -> httpBasic.disable());

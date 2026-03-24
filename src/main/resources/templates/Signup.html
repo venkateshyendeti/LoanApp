@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="Signup.css">
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- Left Side -->
+    <div class="left-side"></div>
+
+    <!-- Right Side -->
+    <div class="right-side">
+
+        <div class="form-box">
+
+            <p class="back">← Back</p>
+
+            <h2>Account Signup</h2>
+
+            <p class="subtitle">
+                Become a member and enjoy exclusive promotions.
+            </p>
+
+            <form action="http://localhost:8080/auth/api/register" method="post">
+
+                <label>Full Name</label>
+                <input type="text" name="fullname" placeholder="Enter your name">
+
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="Enter your email">
+
+                <label>Gender</label>
+                <select name="gender">
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Others</option>
+                </select>
+
+                <label>Date Of Birth</label>
+                <input type="date" name="dateOfBirth">
+
+
+                <label>Password</label>
+                <input type="text" name="password" placeholder="Enter your Password">
+
+                <button>Continue</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

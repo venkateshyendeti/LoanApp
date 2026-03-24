@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #021c1e, #0b3d2e);
+    color: white;
+}
+
+/* Header */
+.header {
+    background: #2b0000;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Container */
+.container {
+    padding: 40px;
+}
+
+/* Form */
+.form {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Row */
+.row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Field */
+.field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Checkbox */
+.checkbox {
+    margin: 20px 0;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.save {
+    background: #1e3a5f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+.reset {
+    background: #7a1c1c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}

@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+.container {
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 230px;
+    background: #3b0000;
+    color: white;
+    height: 100vh;
+    padding: 20px;
+}
+
+.logo {
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 10px;
+    margin: 8px 0;
+    background: #004d40;
+    cursor: pointer;
+}
+
+.sidebar li:hover {
+    background: #00695c;
+}
+
+/* submenu */
+.submenu {
+    display: none;
+    padding-left: 15px;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    background: #002f2f;
+    font-size: 14px;
+}
+
+/* MAIN */
+.main {
+    flex: 1;
+    background: #003d3d;
+    color: white;
+    padding: 20px;
+}
+
+/* TOPBAR */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* TABS */
+.tabs {
+    margin: 20px 0;
+}
+
+.tabs button {
+    padding: 8px 15px;
+    margin-right: 5px;
+    background: #333;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.tabs .active {
+    background: #004d40;
+}
+
+/* ACTIONS */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.actions input {
+    width: 300px;
+    padding: 8px;
+}
+
+.create-btn {
+    background: #004d40;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #002f2f;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #004d40;
+}
+
+th {
+    background: #003d3d;
+}

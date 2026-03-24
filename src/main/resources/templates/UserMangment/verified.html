@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verified Users</title>
+    <link rel="stylesheet" href="verified.css">
+</head>
+<body>
+
+<div class="container">
+
+<!--    &lt;!&ndash; Sidebar &ndash;&gt;-->
+<!--    <div class="sidebar">-->
+<!--        <h2 class="logo">YIYI SUNFLOWER</h2>-->
+<!--        <ul>-->
+<!--            <li>Administrator</li>-->
+<!--            <li>Dashboard</li>-->
+
+<!--            <li class="active">Verified User</li>-->
+<!--        </ul>-->
+<!--    </div>-->
+
+    <!-- Main -->
+    <div class="main">
+
+        <!-- Topbar -->
+        <div class="topbar">
+            <h3>Verified User</h3>
+            <div>🔔 ✉️</div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+            <div>
+                Show
+                <select id="entriesSelect">
+                    <option>10</option>
+                    <option>25</option>
+                </select> Entries
+            </div>
+
+            <input type="text" placeholder="Search...">
+<!--            <button class="create-btn" onclick="goToAddUser()">Create New</button>-->
+        </div>
+
+        <!-- Table -->
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Account Type</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Account Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody id="userTable">
+            <!-- Data will come here -->
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <button>Previous</button>
+            <button>Next</button>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Delete Modal -->
+<div id="deleteModal" class="modal">
+    <div class="modal-box">
+
+        <span class="close" onclick="closeModal()">×</span>
+
+        <p class="message">
+            Are you sure you want to <br> delete this entries?
+        </p>
+
+        <div class="modal-buttons">
+            <button class="yes-btn" onclick="confirmDelete()">Yes</button>
+            <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+        </div>
+
+    </div>
+</div>
+
+<script src="verified.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- Left Side -->
+    <div class="left-side"></div>
+
+    <!-- Right Side -->
+    <div class="right-side">
+
+        <div class="form-box">
+
+            <p class="back">← Back</p>
+
+            <h2>Account Login</h2>
+
+            <p class="subtitle">
+                If you are already a member you can login with your email address and password.
+            </p>
+
+            <form onsubmit="return loginUser(event)">
+
+                <label>Email address</label>
+                <input type="email" placeholder="Enter email">
+
+                <label>Password</label>
+                <input type="password" placeholder="Enter password">
+
+                <div class="remember">
+                    <input type="checkbox"> Remember me
+                </div>
+
+                <button type="submit">Login</button>
+                <p class="signup">
+                    Don't have an account ?
+                    <a href="signup.html">Sign up here</a>
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>
