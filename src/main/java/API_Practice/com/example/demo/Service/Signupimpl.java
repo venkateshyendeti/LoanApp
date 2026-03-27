@@ -31,6 +31,8 @@ public class Signupimpl {
     }
 
       public String register(SignupRequestdto signup){
+
+
             if (userRepositry.findByEmail(signup.getEmail()).isPresent()){
                 throw new RuntimeException("Email already exist");
             }

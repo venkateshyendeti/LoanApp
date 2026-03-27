@@ -1,8 +1,15 @@
 package API_Practice.com.example.demo.Service.usermangment;
 
+import API_Practice.com.example.demo.Entity.User;
 import API_Practice.com.example.demo.Entity.UserManegment;
 import API_Practice.com.example.demo.Repository.UserMangRepo;
+import API_Practice.com.example.demo.Repository.UserRepositry;
 import API_Practice.com.example.demo.dto.Usermanegmentdto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,6 +22,7 @@ public class CreateUserIml {
 
     private final PasswordEncoder passwordEncoder;
     private final UserMangRepo userMangRepo;
+
 
     public CreateUserIml(PasswordEncoder passwordEncoder, UserMangRepo userMangRepo) {
         this.passwordEncoder = passwordEncoder;
@@ -35,10 +43,6 @@ public class CreateUserIml {
         userMangRepo.save(user);
 
         return "User Created Successfully";
-    }
-
-    public List<UserManegment> getVerifiedUsers() {
-        return userMangRepo.findByAccountStatus("verified");
     }
 
     public UserManegment getUserById(Long id) {
@@ -76,5 +80,31 @@ public class CreateUserIml {
         return "User deleted successfully";
     }
 
+
+
+
+    public Page<UserManegment> getUsers(String status, String search,int page, int size, String sortBy) {
+
+        Pageable pageable = PageRequest.of(
+                page,
+                size,
+                Sort.by("id").descending()
+        );
+
+        if (search != null && !search.isEmpty()) {
+            return userMangRepo
+                    .findByAccountStatusAndFirstNameContainingIgnoreCaseOrAccountStatusAndLastNameContainingIgnoreCaseOrAccountStatusAndEmailContainingIgnoreCase(
+                            status, search,
+                            status, search,
+                            status, search,
+                            pageable
+                    );
+        }
+
+        if (status != null && !status.isEmpty()) {
+            return userMangRepo.findByAccountStatus(status, pageable);
+        }
+        return userMangRepo.findAll(pageable);
+    }
 
 }

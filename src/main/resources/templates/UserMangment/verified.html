@@ -39,7 +39,7 @@
                 </select> Entries
             </div>
 
-            <input type="text" placeholder="Search...">
+            <input type="text" id="searchInput" placeholder="Search...">
 <!--            <button class="create-btn" onclick="goToAddUser()">Create New</button>-->
         </div>
 
@@ -63,8 +63,8 @@
         </table>
 
         <div class="pagination">
-            <button>Previous</button>
-            <button>Next</button>
+            <button id="prevBtn" onclick="prevPage()">Previous</button>
+            <button id="nextBtn" onclick="nextPage()">Next</button>
         </div>
 
     </div>

@@ -1,6 +1,9 @@
 // ===== GLOBAL =====
 let allUsers = [];
 let deleteId = null;
+let currentPage = 0;
+let totalPages = 0;
+let searchText = "";
 
 
 // ===== LOAD USERS =====
@@ -26,21 +29,22 @@ async function loadUsers() {
 // ===== DISPLAY USERS =====
 function displayUsers() {
     const table = document.getElementById("userTable");
-    const limit = document.getElementById("entriesSelect").value;
 
     table.innerHTML = "";
 
-    const limitedUsers = allUsers.slice(0, limit);
+    allUsers.forEach((user, index) => {
 
-    limitedUsers.forEach((user, index) => {
+        let firstName = user.firstName || "-";
+        let lastName = user.lastName || "-";
+
         table.innerHTML += `
             <tr>
-                <td>${index + 1}</td>
-                <td>${user.accountType}</td>
-                <td>${user.firstName}</td>
-                <td>${user.lastName}</td>
-                <td>${user.email}</td>
-                <td><span class="status">${user.accountStatus}</span></td>
+                <td>${index + 1 + (currentPage * 10)}</td>
+                <td>${user.accountType || "User"}</td>
+                <td>${firstName}</td>
+                <td>${lastName}</td>
+                <td>${user.email ? user.email : "N/A"}</td>
+                <td><span class="status">${user.accountStatus || "verified"}</span></td>
                 <td>
                     <div class="dropdown">
                         <button class="dropbtn" onclick="toggleDropdown(this)">Action ▼</button>
@@ -156,4 +160,73 @@ window.onclick = function (event) {
 
 
 // ===== INIT =====
-loadUsers();
+//loadUsers();
+
+   async function loadUsers(page = 0) {
+       try {
+           const token = localStorage.getItem("token");
+           const size = document.getElementById("entriesSelect").value;
+
+           console.log("Loading page:", page);
+
+          const response = await fetch(
+              `http://localhost:8080/create/users?status=verified&search=${searchText}&page=${page}&size=${size}`,
+               {
+                   headers: {
+                       "Authorization": "Bearer " + token
+                   }
+               }
+           );
+
+           const data = await response.json();
+
+           console.log("API RESPONSE:", data);
+           console.log("Current Page:", currentPage);
+           console.log("Total Pages:", totalPages);
+
+           allUsers = data.users;
+           currentPage = data.currentPage;
+           totalPages = data.totalPages;
+
+           displayUsers();
+
+           document.getElementById("prevBtn").disabled = currentPage === 0;
+           document.getElementById("nextBtn").disabled = currentPage === totalPages - 1;
+
+       } catch (error) {
+           console.error("Error:", error);
+       }
+   }
+   loadUsers(0);
+
+    function nextPage() {
+        if (currentPage < totalPages - 1) {
+            loadUsers(currentPage + 1);
+        }
+    }
+
+    function prevPage() {
+        if (currentPage > 0) {
+            loadUsers(currentPage - 1);
+        }
+    }
+
+
+    document.getElementById("entriesSelect")
+        .addEventListener("change", () => loadUsers(0));
+
+
+
+        let debounceTimer;
+
+        document.getElementById("searchInput").addEventListener("input", function () {
+
+            clearTimeout(debounceTimer);
+
+            debounceTimer = setTimeout(() => {
+                searchText = this.value;
+                loadUsers(0);
+            }, 400);
+        });
+
+
